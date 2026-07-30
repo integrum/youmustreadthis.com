@@ -36,7 +36,9 @@ HEADING = re.compile(r"^#{1,6}\s", re.MULTILINE)
 FENCE = re.compile(r"```.*?```", re.DOTALL)
 PLACEHOLDER_WORD = re.compile(r"\b(TBD|TODO|FIXME|XXX)\b")
 SIMILAR_TO = re.compile(r"similar to AD-\d+", re.IGNORECASE)
-TEMPLATE_TOKEN = re.compile(r"\{[a-z_][a-z0-9_ /.-]*\}")
+# Match unfilled spine-template tokens including uppercase IDs such as
+# `{AD-id / convention}` and `{CAP-id / area}` (not only lowercase placeholders).
+TEMPLATE_TOKEN = re.compile(r"\{[a-zA-Z_][a-zA-Z0-9_ /.-]*\}")
 
 
 def split_frontmatter(text: str) -> tuple[str, str, int]:

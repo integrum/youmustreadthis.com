@@ -35,7 +35,15 @@ When invoked from another prompt or process:
 
 ### Step 1: Method Registry Loading
 
-**Action:** Load `./methods.csv` for elicitation methods. If party-mode may participate, resolve the agent roster via:
+**Action:** Resolve `{communication_language}` (and `{user_name}` when useful) before any user-facing output. Prefer:
+
+```bash
+python3 {project-root}/_bmad/scripts/resolve_config.py --project-root {project-root} --key core
+```
+
+Use `communication_language` from that JSON when present. If the resolver fails or the key is missing, load `{project-root}/_bmad/core/config.yaml` (and `config.user.yaml` if present) for the same fields. Missing → default to English; never block.
+
+Then load `./methods.csv` for elicitation methods. If party-mode may participate, resolve the agent roster via:
 
 ```bash
 python3 {project-root}/_bmad/scripts/resolve_config.py --project-root {project-root} --key agents
