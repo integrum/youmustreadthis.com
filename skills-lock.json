@@ -43,6 +43,18 @@
       "skillPath": "skills/aso/SKILL.md",
       "computedHash": "f84a1fb5cb1a8a7f7171bd60ae6850f24a82fa6af94bd5f12e5b3e9227480a34"
     },
+    "bmad-epic-archiver": {
+      "source": "dneighbors/chiron-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/bmad-epic-archiver/SKILL.md",
+      "computedHash": "e3a9de4fa9642d9ed550ae0886467d5695cc526ae1529372328c1b0763574787"
+    },
+    "bmad-swarm": {
+      "source": "dneighbors/chiron-agent-skills",
+      "sourceType": "github",
+      "skillPath": "skills/bmad-swarm/SKILL.md",
+      "computedHash": "92cd5a3f2fdaa85ede20153dec2a623c494964529ba3a00b3767ccf5e78acc17"
+    },
     "churn-prevention": {
       "source": "coreyhaines31/marketingskills",
       "sourceType": "github",
