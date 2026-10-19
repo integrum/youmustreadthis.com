@@ -36,9 +36,7 @@ HEADING = re.compile(r"^#{1,6}\s", re.MULTILINE)
 FENCE = re.compile(r"```.*?```", re.DOTALL)
 PLACEHOLDER_WORD = re.compile(r"\b(TBD|TODO|FIXME|XXX)\b")
 SIMILAR_TO = re.compile(r"similar to AD-\d+", re.IGNORECASE)
-# Match unfilled spine-template tokens including uppercase IDs such as
-# `{AD-id / convention}` and `{CAP-id / area}` (not only lowercase placeholders).
-TEMPLATE_TOKEN = re.compile(r"\{[a-zA-Z_][a-zA-Z0-9_ /.-]*\}")
+TEMPLATE_TOKEN = re.compile(r"\{[a-z_][a-z0-9_ /.-]*\}")
 
 
 def split_frontmatter(text: str) -> tuple[str, str, int]:
@@ -256,4 +254,8 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
+    if sys.platform == "win32":
+        # Piped output on Windows defaults to a legacy code page, not UTF-8.
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
     sys.exit(main())
