@@ -29,7 +29,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 10-18-2026 22:35
-last_updated: 10-18-2026 22:35
+last_updated: 10-20-2026 06:14
 project: youmustreadthis.com
 project_key: NOKEY
 tracking_system: file-system
@@ -37,9 +37,9 @@ story_location: _bmad-output/implementation-artifacts
 # benji_list: You Must Read This (1451c017-e249-464d-902a-fe2450508acc)
 # repo: integrum/youmustreadthis.com
 development_status:
-  epic-0: backlog  # BenjiProjectID: 86f49183-aae5-45f7-9a71-05dc6ff462c3
+  epic-0: in-progress  # BenjiProjectID: 86f49183-aae5-45f7-9a71-05dc6ff462c3
   0-1-modernize-node-and-build-toolchain: backlog  # BenjiID: b485e1f8-3fc8-42b0-acc9-3b7a2730e361
-  0-2-patch-js-yaml-dependabot-alert-116: backlog  # BenjiID: bd8c50cf-a34e-47c8-936c-5295f1bc41f6
+  0-2-patch-js-yaml-dependabot-alert-116: done  # BenjiID: bd8c50cf-a34e-47c8-936c-5295f1bc41f6
   0-3-resolve-stale-dependabot-prs-2-and-4: backlog  # BenjiID: a655dc61-068e-4e14-81a9-8c30c0d8cf92
   0-4-confirm-netlify-production-build-and-deploy-previews: backlog  # BenjiID: 0fa36d42-f938-4600-b71c-db83f2c37faf
   0-5-replace-dead-universal-analytics-tag: backlog  # BenjiID: da68deac-2508-4c0e-b43e-4df3ea020d93
