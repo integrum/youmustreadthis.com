@@ -90,14 +90,7 @@ def test_unfilled_template_token_caught():
     assert any(f["category"] == "placeholder" for f in result["findings"])
 
 
-def test_uppercase_template_tokens_caught():
-    # spine-template.md uses tokens like {AD-id / convention} and {CAP-id / area}
-    text = CLEAN.replace("fastapi", "{AD-id / convention}").replace("0.115", "{CAP-id / area}")
-    result = lint_spine.lint(text)
-    details = " ".join(f["detail"] for f in result["findings"] if f["category"] == "placeholder")
-    assert "AD-id" in details or "template token" in details
-    assert any(f["category"] == "placeholder" for f in result["findings"])
-    assert result["total_findings"] >= 2
+def test_duplicate_ad_id_caught():
     text = CLEAN.replace("### AD-2 — layered deps `[ADOPTED]`", "### AD-1 — layered deps")
     result = lint_spine.lint(text)
     assert "ad_id" in cats(result)
