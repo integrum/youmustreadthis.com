@@ -29,7 +29,7 @@
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
 # - Retrospective appends its action items to action_items; the status view surfaces open ones
 generated: 10-18-2026 22:35
-last_updated: 10-20-2026 06:14
+last_updated: 10-22-2026 23:30
 project: youmustreadthis.com
 project_key: NOKEY
 tracking_system: file-system
@@ -38,7 +38,7 @@ story_location: _bmad-output/implementation-artifacts
 # repo: integrum/youmustreadthis.com
 development_status:
   epic-0: in-progress  # BenjiProjectID: 86f49183-aae5-45f7-9a71-05dc6ff462c3
-  0-1-modernize-node-and-build-toolchain: backlog  # BenjiID: b485e1f8-3fc8-42b0-acc9-3b7a2730e361
+  0-1-modernize-node-and-build-toolchain: review  # BenjiID: b485e1f8-3fc8-42b0-acc9-3b7a2730e361
   0-2-patch-js-yaml-dependabot-alert-116: done  # BenjiID: bd8c50cf-a34e-47c8-936c-5295f1bc41f6
   0-3-resolve-stale-dependabot-prs-2-and-4: backlog  # BenjiID: a655dc61-068e-4e14-81a9-8c30c0d8cf92
   0-4-confirm-netlify-production-build-and-deploy-previews: backlog  # BenjiID: 0fa36d42-f938-4600-b71c-db83f2c37faf

@@ -3,7 +3,7 @@
 
 ## youmustreadthis.com
 
-Derek Neighbors' curated "you must read these books" list. Jekyll + Tailwind 2 static site built by gulp, deployed by Netlify from `master`. Planning lives in `_bmad-output/planning-artifacts/epics.md`, tracking in `_bmad-output/implementation-artifacts/sprint-status.yaml`, and each story mirrors a Benji todo on the "You Must Read This" list (`1451c017-e249-464d-902a-fe2450508acc`).
+Derek Neighbors' curated "you must read these books" list. Jekyll 4.4 + Tailwind 3.4 static site built by npm scripts, deployed by Netlify from `master`. Planning lives in `_bmad-output/planning-artifacts/epics.md`, tracking in `_bmad-output/implementation-artifacts/sprint-status.yaml`, and each story mirrors a Benji todo on the "You Must Read This" list (`1451c017-e249-464d-902a-fe2450508acc`).
 
 ## Policy
 
@@ -16,19 +16,20 @@ Derek Neighbors' curated "you must read these books" list. Jekyll + Tailwind 2 s
 
 - Book entries: `_books/<slug>.md` (front matter `title`, `author`, `amazon`, `image`; body is the blurb); covers in `img/`.
 - Page shell: `_includes/header.html` (opens `<html>`/`<head>`) + `_layouts/default.html` + `_includes/footer.html` (closes `</body></html>`).
-- Homepage listing: `index.html`; styles source `src/style.css`; build pipeline `gulpfile.babel.js`.
+- Homepage listing: `index.html`; styles source `src/style.css`; Tailwind config `tailwind.config.js`; build pipeline is the `scripts` block in `package.json`.
 
 ## Running and verifying
 
-- Build with `npm run build` (gulp: `bundle exec jekyll build`, then Tailwind/PostCSS into `_site/assets/css/`); plain `jekyll build` produces unstyled HTML.
+- Build with `npm run build` (`bundle exec jekyll build`, then the Tailwind CLI with `--minify` writes `_site/assets/css/style.css`; autoprefixer + minify are built into the CLI); plain `jekyll build` produces unstyled HTML.
+- Local dev: `npm run dev` (`jekyll serve --watch --livereload` on port 4000 plus `tailwindcss --watch=always`); `_config.yml` `keep_files: [assets/css]` stops Jekyll regeneration from deleting the CSS.
 - Netlify runs `JEKYLL_ENV=production npm run build`; analytics only renders when `jekyll.environment == "production"`.
-- Pinned runtimes: Node 12 (`.nvmrc`, `package.json` engines) and Ruby 2.7.2 (`.ruby-version`) until Story 0.1 lands; use those versions locally, not the system defaults.
+- Pinned runtimes: Node 22 (`.nvmrc`, `package.json` engines, `netlify.toml` `NODE_VERSION`) and Ruby 3.4.x (`.ruby-version`, kept identical to `netlify.toml` `RUBY_VERSION`); Jekyll 4.4, Tailwind 3.4. Use these locally (e.g. `mise exec node@22 ruby@3.4.11 -- ...`), not the system defaults.
 - There is no test suite; verify by building and checking `_site/` (and the Netlify deploy preview).
 
 ## Conventions that differ from defaults
 
-- Ignore `README.md` build/deploy notes; they are the upstream jekyll-starter-tailwind boilerplate, not this project's process.
-- Tailwind purges against `_site/**/*.html`, so CSS must be compiled after Jekyll builds; new classes only appear after a full `npm run build`.
+- Tailwind `content` scans `_site/**/*.html` (purge), so CSS must be compiled after Jekyll builds; new classes only appear after a full `npm run build`.
+- `package.json` `overrides` forces `postcss-selector-parser` to v7 (outside Tailwind 3.4's declared `^6` range) to clear GHSA-rj75-hqrm-r3gf; after using new variant types (`group-*`, `peer-*`, arbitrary variants, `important`), diff the compiled CSS.
 
 ## Known pitfalls
 

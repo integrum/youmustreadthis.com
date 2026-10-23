@@ -6,7 +6,6 @@ collections:
 exclude:
   - Gemfile
   - Gemfile.lock
-  - gulpfile.babel.js
   - LICENSE.md
   - node_modules
   - package.json
@@ -15,3 +14,12 @@ exclude:
   - src
   - tailwind.config.js
   - netlify.toml
+  - AGENTS.md
+  - CLAUDE.md
+  - skills-lock.json
+  - docs
+
+keep_files:
+  - .git
+  - .svn
+  - assets/css
