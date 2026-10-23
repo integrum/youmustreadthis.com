@@ -27,7 +27,7 @@ so that the PR queue reflects real work only.
 ## Dev Notes
 
 - PR #8 (`feat(epic-0): Modernize Node and build toolchain`) refreshed `Gemfile.lock` to Jekyll 4.4.x with `rexml (3.4.4)` and `addressable (2.9.0)`, exceeding both Dependabot bumps.
-- Stale branches (`dependabot/bundler/rexml-3.2.5`, `dependabot/bundler/addressable-2.8.1`) predate the toolchain refresh; `mergeable_state` is **dirty** (conflicts). Rebasing would yield no net change vs `master`.
+- Stale branches (`dependabot/bundler/rexml-3.2.5`, `dependabot/bundler/addressable-2.8.1`) predate the toolchain refresh; were **dirty** until merged forward to `master` (zero file diff vs `master`; lockfile already at rexml 3.4.4 / addressable 2.9.0).
 - No GitHub Actions check runs were attached to these PR heads at inspection time; Netlify previews apply to new pushes only.
 
 ### References
@@ -46,6 +46,7 @@ Composer (Cloud Agent)
 ### Completion Notes List
 
 - Confirmed both Dependabot PRs are **superseded** by `master` after PR #8; recommended close-with-comment for Derek.
+- Merged `master` into both Dependabot branches and pushed (PR diffs now empty; Netlify can run on updated heads).
 - Added weekly Dependabot config for npm and bundler.
 - Verified production build path: `npm ci` + `bundle install` + `npm run build` succeeds.
 
