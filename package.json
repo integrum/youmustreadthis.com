@@ -1,42 +1,28 @@
 {
-  "name": "jekyll-starter-tailwind",
-  "version": "6.0.0",
-  "description": "A starter kit for using Tailwind with Jekyll",
-  "main": "gulpfile.babel.js",
+  "name": "youmustreadthis",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Derek Neighbors' curated list of books you must read (youmustreadthis.com), built with Jekyll and Tailwind CSS.",
   "devDependencies": {
-    "autoprefixer": "10.2.5",
-    "babel-preset-env": "1.7.0",
-    "babel-register": "6.26.0",
-    "browser-sync": "2.26.14",
-    "cross-env": "7.0.3",
-    "cross-spawn": "7.0.3",
-    "cssnano": "^5.0.5",
-    "gulp": "^4.0.2",
-    "gulp-postcss": "9.0.0",
-    "postcss": "8.2.13",
-    "postcss-import": "14.0.0",
-    "tailwindcss": "2.1.2"
+    "tailwindcss": "3.4.19"
   },
   "engines": {
-    "node": "12"
+    "node": ">=22 <23"
   },
   "scripts": {
-    "build:production": "cross-env NODE_ENV=production gulp",
-    "build:dev": "cross-env NODE_ENV=development gulp",
-    "build": "npm run build:production",
-    "dev": "cross-env NODE_ENV=development gulp serve",
+    "build:jekyll": "bundle exec jekyll build",
+    "build:css": "tailwindcss -i src/style.css -o _site/assets/css/style.css --minify",
+    "build": "npm run build:jekyll && npm run build:css",
+    "dev": "npm run build && (bundle exec jekyll serve --skip-initial-build --watch --livereload --port 4000 & tailwindcss -i src/style.css -o _site/assets/css/style.css --watch=always)",
     "start": "npm run dev"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/taylorbryant/jekyll-starter-tailwind.git"
+    "url": "https://github.com/integrum/youmustreadthis.com.git"
   },
-  "author": "Taylor Bryant",
+  "author": "Derek Neighbors / Integrum",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/taylorbryant/jekyll-starter-tailwind/issues"
-  },
-  "publishConfig": {
-    "access": "public"
+  "overrides": {
+    "postcss-selector-parser": "^7.1.6"
   }
 }
