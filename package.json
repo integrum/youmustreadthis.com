@@ -4,7 +4,7 @@
   "private": true,
   "description": "Derek Neighbors' curated list of books you must read (youmustreadthis.com), built with Jekyll and Tailwind CSS.",
   "devDependencies": {
-    "tailwindcss": "3.4.19"
+    "tailwindcss": "4.3.3"
   },
   "engines": {
     "node": ">=22 <23"
