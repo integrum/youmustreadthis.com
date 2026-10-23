@@ -1,0 +1,64 @@
+# STATUS DEFINITIONS:
+# ==================
+# Epic Status:
+#   - backlog: Epic not yet started
+#   - in-progress: Epic actively being worked on
+#   - done: All stories in epic completed
+
+# Story Status:
+#   - backlog: Story only exists in epic file
+#   - ready-for-dev: Story file created, ready for development
+#   - in-progress: Developer actively working on implementation
+#   - review: Implementation complete, ready for review
+#   - done: Story completed
+
+# Retrospective Status:
+#   - optional: Can be completed but not required
+#   - done: Retrospective has been completed
+
+# Action Item Status:
+#   - open: Committed during a retrospective, not yet addressed
+#   - in-progress: Actively being worked on
+#   - done: Completed
+
+# WORKFLOW NOTES:
+# ===============
+# - Epic transitions to 'in-progress' automatically when its first story starts (via build's sprint sync)
+# - Stories can be worked in parallel if team capacity allows
+# - Developer typically creates the next story after the previous one is 'done' to incorporate learnings
+# - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+# - Retrospective appends its action items to action_items; the status view surfaces open ones
+generated: 10-18-2026 22:35
+last_updated: 10-22-2026 23:30
+project: youmustreadthis.com
+project_key: NOKEY
+tracking_system: file-system
+story_location: _bmad-output/implementation-artifacts
+# benji_list: You Must Read This (1451c017-e249-464d-902a-fe2450508acc)
+# repo: integrum/youmustreadthis.com
+development_status:
+  epic-0: in-progress  # BenjiProjectID: 86f49183-aae5-45f7-9a71-05dc6ff462c3
+  0-1-modernize-node-and-build-toolchain: review  # BenjiID: b485e1f8-3fc8-42b0-acc9-3b7a2730e361
+  0-2-patch-js-yaml-dependabot-alert-116: done  # BenjiID: bd8c50cf-a34e-47c8-936c-5295f1bc41f6
+  0-3-resolve-stale-dependabot-prs-2-and-4: backlog  # BenjiID: a655dc61-068e-4e14-81a9-8c30c0d8cf92
+  0-4-confirm-netlify-production-build-and-deploy-previews: backlog  # BenjiID: 0fa36d42-f938-4600-b71c-db83f2c37faf
+  0-5-replace-dead-universal-analytics-tag: backlog  # BenjiID: da68deac-2508-4c0e-b43e-4df3ea020d93
+  0-6-pull-add-shared-skill-and-mirror-claude-skills: backlog  # BenjiID: abec7881-bad3-4008-bb43-e29bd3899fc6
+  epic-0-retrospective: optional
+
+  epic-1: backlog  # BenjiProjectID: 3237eea1-d269-4757-8c6d-b42e1c7a5478
+  1-1-fix-base-html-shell: backlog  # BenjiID: 448aba51-efd1-4f29-b111-ff8b19c75817
+  1-2-book-pages-via-collection-output-and-book-layout: backlog  # BenjiID: 365f19d8-bf3d-460d-a729-08e6ae2c97b9
+  1-3-titles-meta-descriptions-and-social-cards-via-jekyll-seo-tag: backlog  # BenjiID: fd76e618-c61f-4d0e-b373-da8b5d4ddbdc
+  1-4-sitemap-xml-via-jekyll-sitemap-and-robots-txt: backlog  # BenjiID: a68cf36b-6647-4360-866b-4fd7b5a404f4
+  1-5-structured-data-for-book-itemlist-and-person: backlog  # BenjiID: dfb86c72-6a8e-4654-b423-cf9b7d6e0d15
+  1-6-cover-image-alt-text-and-image-optimization: backlog  # BenjiID: dda62b84-2380-493e-a920-61b1f91fbafa
+  1-7-footer-refresh-with-current-year-and-curator-byline: backlog  # BenjiID: 8334c891-59c8-41b1-ba35-668c093bc4c8
+  epic-1-retrospective: optional
+
+  epic-2: backlog  # BenjiProjectID: 7bb7c96f-1451-4d8b-8e40-adcb9153dd04
+  2-1-amazon-associates-tag-wiring-and-disclosure: backlog  # BenjiID: c343bf98-17bd-4730-9e47-09f909bc52ad
+  2-2-per-book-why-read-this-long-form-content: backlog  # BenjiID: ea6f170f-6ae6-4b58-bb2f-8c0e6a9acc1b
+  2-3-add-new-books-pipeline-and-first-batch: backlog  # BenjiID: 1b24763d-4d50-4518-a7e6-a481e8a9f933
+  2-4-about-page-and-curator-voice: backlog  # BenjiID: 33d840cd-4999-4cda-9d97-2904730b4a22
+  epic-2-retrospective: optional

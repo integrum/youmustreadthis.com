@@ -1,74 +1,78 @@
-# Jekyll Starter Tailwind
-[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
+# You Must Read This
 
-A starter kit for using [Tailwind](https://tailwindcss.com) with [Jekyll](https://jekyllrb.com/) that includes:
-* A barebones Jekyll starter theme
-* A Gulpfile that does the following:
+[youmustreadthis.com](https://youmustreadthis.com) is Derek Neighbors' curated list of books you must read. It is a small static site: Jekyll renders the pages from a `books` collection, Tailwind CSS styles them, and Netlify builds and hosts it.
 
-    * Compiles Tailwind
-    * Strips out unused CSS using Tailwind's `purge` option
-    * Runs [Autoprefixer](https://github.com/postcss/autoprefixer)
-    * Minifies your CSS
-    * Compiles Jekyll
-    * Runs [Browsersync](https://www.browsersync.io/) for local development
+## Prerequisites
 
-## What is Tailwind?
->"Tailwind is a utility-first CSS framework for rapidly building custom user interfaces."
-–[Tailwind](https://tailwindcss.com)
+- **Node 22** (pinned in `.nvmrc` and `package.json` `engines`)
+- **Ruby** at the exact version in `.ruby-version` (3.4.x), plus Bundler (ships with Ruby)
 
-## What is Jekyll?
->"Jekyll is a simple, blog-aware, static site generator perfect for personal, project, or organization sites. Think of it like a file-based CMS, without all the complexity. Jekyll takes your content, renders Markdown and Liquid templates, and spits out a complete, static website ready to be served by Apache, Nginx or another web server. Jekyll is the engine behind GitHub Pages, which you can use to host sites right from your GitHub repositories."
-–[Jekyll](https://jekyllrb.com/)
+The easiest way to get both is [mise](https://mise.jdx.dev/):
 
-## Requirements
-* [Bundler](http://bundler.io/)
-* [Jekyll](https://jekyllrb.com/)
-* [Node.js](https://nodejs.org/en/)
-* [npm](https://www.npmjs.com/)
-* [Ruby](https://www.ruby-lang.org/en/)
+```sh
+mise install node@22 ruby@3.4.11
+mise exec node@22 ruby@3.4.11 -- npm run build   # run any command with the pinned runtimes
+```
 
-## Get started
-* `bundle install` to install Ruby gems
-* `npm ci` to install npm packages listed in `package-lock.json`
-* `npm run start` or `npm run dev` to compile the site with development settings and run BrowserSync
+Keep the Ruby version in that command in step with `.ruby-version`. (mise only reads `.nvmrc`/`.ruby-version` on its own if idiomatic version files are enabled in your mise settings.)
 
-## Build your site
-* `npm run build:dev` to compile the site with development settings
-* `npm run build:production` or `npm run build` to compile the site for production
+nvm + rbenv (or similar) work too: `nvm use` reads `.nvmrc`, `rbenv install` reads `.ruby-version`. Do not rely on whatever system Node/Ruby happens to be installed.
 
+## Install
 
-## Deploy
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/taylorbryant/jekyll-starter-tailwind)
+```sh
+bundle install
+npm ci
+```
 
-Note: By default, Netlify uses `jekyll build` as the build command. The included `netlify.toml` file will override it to use `npm run build`.
+## Build
+
+```sh
+npm run build
+```
+
+This runs `bundle exec jekyll build` (HTML into `_site/`) and then the Tailwind CLI, which scans `_site/**/*.html` and writes a purged, autoprefixed, minified `_site/assets/css/style.css`. (The "caniuse-lite is outdated" warning comes from the browserslist data bundled inside the Tailwind CLI and is harmless.) The order matters: CSS must be compiled after Jekyll, so new Tailwind classes only show up after a full build. A plain `jekyll build` gives unstyled HTML.
+
+Netlify runs `JEKYLL_ENV=production npm run build`. Google Analytics only renders in production, so use that command when you need to check the production output.
+
+## Local development
+
+```sh
+npm run dev   # or: npm start
+```
+
+Builds once, then runs `jekyll serve` with `--watch --livereload` on <http://localhost:4000/> alongside `tailwindcss --watch`. Editing templates or books regenerates the HTML, Tailwind rebuilds the CSS from the new HTML, and the browser reloads. Stop it with Ctrl-C. If port 4000 is already in use, Jekyll exits but the Tailwind watcher keeps running; Ctrl-C, free the port and retry. Dev CSS is not minified; run `npm run build` before inspecting production output.
+
+## Deployment
+
+Netlify builds and deploys the `master` branch (`netlify.toml`: build command, `_site/` publish dir, `NODE_VERSION`, `RUBY_VERSION`). Merging to `master` is deploying, so never push to `master` directly: open a branch and a pull request. Pull requests should get Netlify deploy previews (confirmed in Story 0.4).
+
+## Adding or editing a book
+
+Each book is a file in `_books/<slug>.md`:
+
+```markdown
+---
+title: "The Book Title"
+author: Author Name
+amazon: "https://www.amazon.com/..."
+image: cover-file.jpg
+---
+Why you must read it (the blurb shown on the homepage).
+```
+
+Put the cover image in `img/`; `image` is just the file name.
+
+## Project layout
+
+- `index.html` - homepage listing (all markup, Tailwind classes inline)
+- `_layouts/default.html` - page layout
+- `_includes/header.html` - opens `<html>`/`<head>`, loads `/assets/css/style.css` and analytics (production only)
+- `_includes/footer.html` - closes `</body></html>`
+- `_books/` - book entries; `img/` - cover images
+- `src/style.css` - Tailwind entry point; `tailwind.config.js` - Tailwind config (`content` scans `_site/**/*.html`)
+- `_config.yml` - Jekyll config; `netlify.toml` - Netlify build settings
 
 ## License
-[MIT](https://github.com/taylorbryant/jekyll-starter-tailwind/blob/master/LICENSE.md)
 
-## How you can help
-Enjoying Jekyll Starter Tailwind and want to help? You can:
-* [Create an issue](https://github.com/taylorbryant/jekyll-starter-tailwind/issues/new) with some constructive criticism
-* [Submit a pull request](https://github.com/taylorbryant/jekyll-starter-tailwind/compare) with some improvements to the project
-
-## Contributors
-
-Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-<table>
-  <tr>
-    <td align="center"><a href="http://phproberto.com"><img src="https://avatars0.githubusercontent.com/u/1119272?v=4" width="100px;" alt=""/><br /><sub><b>Roberto Segura</b></sub></a><br /><a href="https://github.com/taylorbryant/jekyll-starter-tailwind/commits?author=phproberto" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/benmp"><img src="https://avatars3.githubusercontent.com/u/9081154?v=4" width="100px;" alt=""/><br /><sub><b>benmp</b></sub></a><br /><a href="https://github.com/taylorbryant/jekyll-starter-tailwind/commits?author=benmp" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/jd4no"><img src="https://avatars0.githubusercontent.com/u/15043675?v=4" width="100px;" alt=""/><br /><sub><b>Joey Defourneaux</b></sub></a><br /><a href="https://github.com/taylorbryant/jekyll-starter-tailwind/commits?author=jd4no" title="Code">💻</a></td>
-    <td align="center"><a href="https://shime.sh"><img src="https://avatars3.githubusercontent.com/u/703563?v=4" width="100px;" alt=""/><br /><sub><b>Hrvoje Šimić</b></sub></a><br /><a href="https://github.com/taylorbryant/jekyll-starter-tailwind/commits?author=shime" title="Code">💻</a></td>
-    <td align="center"><a href="https://alejof.dev"><img src="https://avatars2.githubusercontent.com/u/7116453?v=4" width="100px;" alt=""/><br /><sub><b>Alejandro Figueroa</b></sub></a><br /><a href="https://github.com/taylorbryant/jekyll-starter-tailwind/commits?author=alexphi" title="Code">💻</a></td>
-  </tr>
-</table>
-
-<!-- markdownlint-enable -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+[MIT](LICENSE.md)
