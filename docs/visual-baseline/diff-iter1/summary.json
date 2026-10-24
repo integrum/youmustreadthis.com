@@ -1,0 +1,41 @@
+{
+  "generatedAt": "2026-10-24T03:43:48.876Z",
+  "results": [
+    {
+      "file": "404-desktop.png",
+      "width": 1440,
+      "height": 900,
+      "mismatchedPixels": 0,
+      "totalPixels": 1296000,
+      "diffPercent": 0,
+      "diffImage": "404-desktop-diff.png"
+    },
+    {
+      "file": "404-mobile.png",
+      "width": 390,
+      "height": 844,
+      "mismatchedPixels": 0,
+      "totalPixels": 329160,
+      "diffPercent": 0,
+      "diffImage": "404-mobile-diff.png"
+    },
+    {
+      "file": "homepage-desktop.png",
+      "width": 1440,
+      "height": 4278,
+      "mismatchedPixels": 0,
+      "totalPixels": 6160320,
+      "diffPercent": 0,
+      "diffImage": "homepage-desktop-diff.png"
+    },
+    {
+      "file": "homepage-mobile.png",
+      "width": 390,
+      "height": 10053,
+      "mismatchedPixels": 0,
+      "totalPixels": 3920670,
+      "diffPercent": 0,
+      "diffImage": "homepage-mobile-diff.png"
+    }
+  ]
+}
