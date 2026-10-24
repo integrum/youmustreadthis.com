@@ -12,7 +12,6 @@ exclude:
   - package-lock.json
   - README.md
   - src
-  - tailwind.config.js
   - netlify.toml
   - AGENTS.md
   - CLAUDE.md

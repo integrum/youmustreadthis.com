@@ -44,6 +44,7 @@ development_status:
   0-4-confirm-netlify-production-build-and-deploy-previews: backlog  # BenjiID: 0fa36d42-f938-4600-b71c-db83f2c37faf
   0-5-replace-dead-universal-analytics-tag: backlog  # BenjiID: da68deac-2508-4c0e-b43e-4df3ea020d93
   0-6-pull-add-shared-skill-and-mirror-claude-skills: backlog  # BenjiID: abec7881-bad3-4008-bb43-e29bd3899fc6
+  0-7-upgrade-tailwind-css-3-4-to-4-x-with-visual-parity: done  # BenjiID: 8ad9723e-8d94-4f76-9cea-0630af02ec5b
   epic-0-retrospective: optional
 
   epic-1: backlog  # BenjiProjectID: 3237eea1-d269-4757-8c6d-b42e1c7a5478

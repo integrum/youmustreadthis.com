@@ -1,0 +1,23 @@
+{
+  "pageTypes": [
+    {
+      "id": "homepage",
+      "template": "index.html",
+      "layout": "default.html",
+      "includes": ["header.html", "footer.html"],
+      "url": "/",
+      "notes": "Only Jekyll output page today; books collection has no output: true (Story 1.2)."
+    },
+    {
+      "id": "404",
+      "template": "(none — Jekyll default missing-page response)",
+      "layout": "default.html (partial — same shell when served)",
+      "url": "/this-page-does-not-exist-yet/",
+      "notes": "No custom 404.html in repo; captured for regression if server returns styled page."
+    }
+  ],
+  "viewports": [
+    { "id": "desktop", "width": 1440, "height": 900 },
+    { "id": "mobile", "width": 390, "height": 844 }
+  ]
+}

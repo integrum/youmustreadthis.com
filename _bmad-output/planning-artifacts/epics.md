@@ -173,6 +173,24 @@ So that Cursor and Claude Code agents see the same skills.
 - Every `.agents/skills/*` skill has a matching `.claude/skills/*` entry (copy or symlink, consistent with the BMAD installer output)
 - Committed on a branch with a PR; no unrelated skill churn
 
+### Story 0.7: Upgrade Tailwind CSS 3.4 to 4.x with visual parity
+
+- Story key: `0-7-upgrade-tailwind-css-3-4-to-4-x-with-visual-parity`
+- BenjiID: `8ad9723e-8d94-4f76-9cea-0630af02ec5b`
+- BenjiProjectID: `86f49183-aae5-45f7-9a71-05dc6ff462c3`
+
+As a maintainer,
+I want Tailwind CSS upgraded from 3.4 to 4.x with zero meaningful visual regression,
+So that Dependabot can land security and feature updates without breaking the curated book list design.
+
+**Acceptance Criteria:**
+
+- Baseline full-page Playwright screenshots at 1440px and 390px for every page type/template in use (homepage, layouts/includes, 404 if present); saved under `docs/visual-baseline/`
+- Tailwind 4.x installed with migrated CSS-first config (`@import "tailwindcss"`, `@theme` as needed), `@tailwindcss/cli` (or PostCSS) pipeline, and `npm run build` green with no unresolved Tailwind errors
+- Post-upgrade screenshots at the same URLs and widths; pixel-diff (e.g. pixelmatch) vs baseline until every page matches (document any intentional sub-pixel differences)
+- PR against `master` supersedes Dependabot PR #10 with before/after/diff images and final diff percentages; comment on #10 that it is superseded (do not close #10)
+- `AGENTS.md` / README updated if build or Tailwind conventions change
+
 ## Epic 1: Technical SEO
 
 Turn a single unindexable homepage into a crawlable site: one indexable page per book, correct metadata, sitemap, robots.txt, structured data and valid accessible HTML.

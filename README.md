@@ -70,7 +70,7 @@ Put the cover image in `img/`; `image` is just the file name.
 - `_includes/header.html` - opens `<html>`/`<head>`, loads `/assets/css/style.css` and analytics (production only)
 - `_includes/footer.html` - closes `</body></html>`
 - `_books/` - book entries; `img/` - cover images
-- `src/style.css` - Tailwind entry point; `tailwind.config.js` - Tailwind config (`content` scans `_site/**/*.html`)
+- `src/style.css` - Tailwind 4 entry (`@import "tailwindcss"`, `@source` scans `_site/**/*.html` after Jekyll build)
 - `_config.yml` - Jekyll config; `netlify.toml` - Netlify build settings
 
 ## License
