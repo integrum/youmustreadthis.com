@@ -2,8 +2,10 @@
 
 Status: done
 
-<!-- BenjiID: 8ad9723e-8d94-4f76-9cea-0630af02ec5b -->
-<!-- BenjiProjectID: 86f49183-aae5-45f7-9a71-05dc6ff462c3 -->
+<!-- KeeperID: 504 -->
+<!-- BenjiID (historical): 624b47f2-05e2-4b30-b87c-7a787b3d6571 -->
+<!-- KeeperProjectID: 125 -->
+<!-- BenjiProjectID (historical): 86f49183-aae5-45f7-9a71-05dc6ff462c3 -->
 
 ## Story
 
@@ -21,7 +23,7 @@ so that Dependabot can land security and feature updates without breaking the cu
 
 ## Tasks / Subtasks
 
-- [x] Add story to `epics.md` and `sprint-status.yaml` (Benji todo created)
+- [x] Add story to `epics.md` and `sprint-status.yaml` (Keeper todo 504)
 - [x] Inventory page types (`scripts/visual-regression/pages.json`): homepage only in `_site/`; 404 probe URL (no custom `404.html`)
 - [x] Baseline build on Tailwind 3.4.19; capture to `docs/visual-baseline/tw3/`
 - [x] Run `npx @tailwindcss/upgrade`; add `@tailwindcss/cli`; remove `tailwind.config.js`

@@ -3,13 +3,13 @@
 
 ## youmustreadthis.com
 
-Derek Neighbors' curated "you must read these books" list. Jekyll 4.4 + Tailwind 4.x static site built by npm scripts, deployed by Netlify from `master`. Planning lives in `_bmad-output/planning-artifacts/epics.md`, tracking in `_bmad-output/implementation-artifacts/sprint-status.yaml`, and each story mirrors a Benji todo on the "You Must Read This" list (`1451c017-e249-464d-902a-fe2450508acc`).
+Derek Neighbors' curated "you must read these books" list. Jekyll 4.4 + Tailwind 4.x static site built by npm scripts, deployed by Netlify from `master`. Planning lives in `_bmad-output/planning-artifacts/epics.md`, tracking in `_bmad-output/implementation-artifacts/sprint-status.yaml`, and each story mirrors a Keeper todo in Area **You Must Read This** (`KeeperAreaID: 29`).
 
 ## Policy
 
 - Never push to `master`; branch + PR only. Netlify deploys `master` on merge, so merging is deploying.
-- Code work needs a Benji story todo plus matching entries in `epics.md` and `sprint-status.yaml` (story key + `BenjiID`, epic `BenjiProjectID`); never ship orphan work.
-- Implement stories with the `bmad-swarm` skill (`.agents/skills/bmad-swarm`), passing the story's BenjiID; do not hand-roll an agent run.
+- Code work needs a Keeper story todo plus matching entries in `epics.md` and `sprint-status.yaml` (story key + `KeeperID`, epic `KeeperProjectID`); never ship orphan work. Use the Keeper MCP (`user-keeper`) to claim and complete todos. Legacy `BenjiID (historical)` / `BenjiProjectID (historical)` fields remain for one cycle as cross-links only.
+- Implement stories with the `bmad-swarm` skill (`.agents/skills/bmad-swarm`), passing the story's `KeeperID`; do not hand-roll an agent run.
 - Never hand-edit installer-managed BMAD files (`_bmad/config.toml`, `_bmad/config.user.toml`, `_bmad/*/config.yaml`, `bmad-*` skills); re-run `npx bmad-method@latest install --action quick-update`, and put overrides in `_bmad/custom/config.toml`.
 
 ## Where things are
