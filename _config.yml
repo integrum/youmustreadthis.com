@@ -1,7 +1,11 @@
 title: You Must Read This
 description: You are here because you want to be magnificent. These books will start you on the journey. Choose the one that speaks to you.
+url: https://youmustreadthis.com
 collections:
   - books
+
+plugins:
+  - jekyll-sitemap
 
 exclude:
   - Gemfile
@@ -17,6 +21,7 @@ exclude:
   - CLAUDE.md
   - skills-lock.json
   - docs
+  - scripts
 
 keep_files:
   - .git
